@@ -9,6 +9,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
     model = models.CharField(max_length=100, verbose_name='Модель')
     release_date = models.DateField(verbose_name='Дата выпуска')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', **NULLABLE)
 
     def __str__(self):
         return f'{self.title} / {self.model}'
@@ -37,7 +38,7 @@ class NetworkElement(models.Model):
     products = models.ManyToManyField(Product, verbose_name='Продукты')
     supplier = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE)
     debt = models.DecimalField(max_digits=15, decimal_places=2, default=0.00, verbose_name='Задолженность')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Создатель', **NULLABLE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', **NULLABLE)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
