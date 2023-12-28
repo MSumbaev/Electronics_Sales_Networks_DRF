@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from sales_network.models import NetworkElement, Product
+from sales_network.validators import DebtChangeValidator
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -21,4 +22,7 @@ class NetworkElementUpdateSerializer(serializers.ModelSerializer):
     """Сериализатор модели NetworkElement для обновления, исключающий возможность изменять задолженность через API"""
     class Meta:
         model = NetworkElement
-        exclude = ('debt',)
+        fields = '__all__'
+        validators = [
+            DebtChangeValidator(debt='debt',)
+        ]
