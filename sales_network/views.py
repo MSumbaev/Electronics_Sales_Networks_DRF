@@ -9,6 +9,7 @@ from sales_network.serializers import ProductSerializer, NetworkElementUpdateSer
 
 # - - - - - - - - - - -Product- - - - - - - - - - -
 class ProductCreateApiView(generics.CreateAPIView):
+    """Контроллер для создания объекта Product"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated]
@@ -20,24 +21,28 @@ class ProductCreateApiView(generics.CreateAPIView):
 
 
 class ProductListApiView(generics.ListAPIView):
+    """Контроллер для просмотра списка объектов Product"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated]
 
 
 class ProductRetrieveApiView(generics.RetrieveAPIView):
+    """Контроллер для просмотра объекта Product"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated]
 
 
 class ProductUpdateApiView(generics.UpdateAPIView):
+    """Контроллер для обновления объекта Product"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsAuthor]
 
 
 class ProductDeleteApiView(generics.DestroyAPIView):
+    """Контроллер для удаления объекта Product"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsAuthor]
@@ -45,6 +50,7 @@ class ProductDeleteApiView(generics.DestroyAPIView):
 
 # - - - - - - - - - - -NetworkElement- - - - - - - - - - -
 class NetworkElementCreateApiView(generics.CreateAPIView):
+    """Контроллер для создания объекта NetworkElement"""
     serializer_class = NetworkElementSerializer
     queryset = NetworkElement.objects.all()
     permission_classes = [IsAuthenticated]
@@ -56,6 +62,7 @@ class NetworkElementCreateApiView(generics.CreateAPIView):
 
 
 class NetworkElementListApiView(generics.ListAPIView):
+    """Контроллер для просмотра списка объектов NetworkElement"""
     serializer_class = NetworkElementSerializer
     queryset = NetworkElement.objects.all()
     permission_classes = [IsAuthenticated]
@@ -64,18 +71,21 @@ class NetworkElementListApiView(generics.ListAPIView):
 
 
 class NetworkElementRetrieveApiView(generics.RetrieveAPIView):
+    """Контроллер для просмотра объекта NetworkElement"""
     serializer_class = NetworkElementSerializer
     queryset = NetworkElement.objects.all()
     permission_classes = [IsAuthenticated]
 
 
 class NetworkElementUpdateApiView(generics.UpdateAPIView):
+    """Контроллер для обновления объекта NetworkElement"""
     serializer_class = NetworkElementUpdateSerializer
     queryset = NetworkElement.objects.all()
     permission_classes = [IsAuthenticated, IsAuthor]
 
 
 class NetworkElementDeleteApiView(generics.DestroyAPIView):
+    """Контроллер для удаления объекта NetworkElement"""
     serializer_class = NetworkElementSerializer
     queryset = NetworkElement.objects.all()
     permission_classes = [IsAuthenticated, IsAuthor]
